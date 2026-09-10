@@ -55,9 +55,11 @@ FINISH: fourth candidate in the proposal set; own-world reskin of the same funct
     color-scheme:dark;
   }
   *{box-sizing:border-box;}
+  html{overflow-x:hidden; max-width:100%;}
   body{
     margin:0; color:var(--ink); font-family:"Plus Jakarta Sans",system-ui,sans-serif; font-size:15px; line-height:1.55;
     -webkit-font-smoothing:antialiased; transition:background .2s ease, color .2s ease;
+    overflow-x:hidden; max-width:100%;
     background:
       radial-gradient(60% 55% at 8% -8%, var(--bg-spot), transparent 60%),
       linear-gradient(165deg, var(--bg1), var(--bg2));
@@ -136,10 +138,11 @@ FINISH: fourth candidate in the proposal set; own-world reskin of the same funct
     .nav-pills{order:3; flex:1 1 100%; margin-top:12px;}
   }
 
+  .view{display:flex; flex-direction:column; gap:16px;}
   .view[hidden]{display:none;}
 
   /* ---------- hero ---------- */
-  .hero{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:22px;}
+  .hero{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;}
   .hero h1{font-size:34px; font-weight:700; margin:0 0 4px;}
   .hero .sub{color:var(--ink-2); font-size:13.5px; margin:0;}
   .metric-row{display:flex; gap:10px; flex-wrap:wrap;}
@@ -159,9 +162,9 @@ FINISH: fourth candidate in the proposal set; own-world reskin of the same funct
   @media (max-width:860px){ .big-stats{display:none;} }
 
   /* ---------- operations grid ---------- */
-  .ops-grid{display:grid; grid-template-columns:1.15fr 1fr 1fr 1.15fr; gap:16px; margin-bottom:16px; align-items:stretch;}
-  @media (max-width:1180px){ .ops-grid{grid-template-columns:1fr 1fr;} }
-  @media (max-width:640px){ .ops-grid{grid-template-columns:1fr;} }
+  .ops-grid{display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.15fr); gap:16px; align-items:stretch;}
+  @media (max-width:1180px){ .ops-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);} }
+  @media (max-width:640px){ .ops-grid{grid-template-columns:minmax(0,1fr);} }
   .panel{padding:20px 20px 18px;}
   .panel-top{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:14px;}
   .panel-top h3{font-size:14.5px; font-weight:700; margin:0;}
@@ -216,8 +219,8 @@ FINISH: fourth candidate in the proposal set; own-world reskin of the same funct
   .queue-empty{opacity:.6; font-size:12.5px; padding:14px 2px;}
 
   /* ---------- lower row: accordion + calendar ---------- */
-  .lower-grid{display:grid; grid-template-columns:1fr 1.5fr; gap:16px;}
-  @media (max-width:960px){ .lower-grid{grid-template-columns:1fr;} }
+  .lower-grid{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); gap:16px;}
+  @media (max-width:960px){ .lower-grid{grid-template-columns:minmax(0,1fr);} }
 
   .accordion-item{border-bottom:1px dashed var(--rule-2);}
   .accordion-item:last-child{border-bottom:none;}
@@ -236,7 +239,7 @@ FINISH: fourth candidate in the proposal set; own-world reskin of the same funct
   .cal-nav{display:flex; gap:6px;}
   .cal-nav button{width:32px; height:32px; border-radius:50%; border:none; background:var(--bg1); color:var(--ink-2); cursor:pointer; display:flex; align-items:center; justify-content:center;}
   .cal-nav button svg{width:13px;height:13px;}
-  .cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:6px;}
+  .cal-grid{display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:6px;}
   .cal-dow{font-size:10.5px; font-weight:700; color:var(--ink-3); text-align:center; padding-bottom:6px; text-transform:uppercase; letter-spacing:.04em;}
   .cal-cell{min-height:64px; border-radius:12px; padding:6px; background:var(--bg1); font-size:11px; color:var(--ink-3); position:relative;}
   .cal-cell.blank{background:transparent;}
@@ -258,7 +261,7 @@ FINISH: fourth candidate in the proposal set; own-world reskin of the same funct
   .pick-card.add-card svg{width:20px;height:20px; margin-bottom:6px;}
   .pick-card.add-card:hover{border-color:var(--accent); color:var(--accent);}
 
-  .row{display:grid; grid-template-columns:auto 1fr auto auto; gap:16px; align-items:center; padding:14px 8px; border-radius:16px; cursor:pointer; transition:background .12s ease;}
+  .row{display:grid; grid-template-columns:auto minmax(0,1fr) auto auto; gap:16px; align-items:center; padding:14px 8px; border-radius:16px; cursor:pointer; transition:background .12s ease;}
   .row:hover{background:var(--bg1);}
   .row-doc{font-family:"JetBrains Mono"; font-size:10.5px; color:var(--ink-3); margin-bottom:3px;}
   .row-body h4{margin:0 0 3px; font-size:14.5px; font-weight:700;}
@@ -268,7 +271,7 @@ FINISH: fourth candidate in the proposal set; own-world reskin of the same funct
   .status-chip.ok{background:var(--ok-soft); color:var(--ok);}
   .status-chip.warn{background:var(--warn-soft); color:var(--warn);}
   .status-chip.danger{background:var(--danger-soft); color:var(--danger);}
-  @media (max-width:640px){ .row{grid-template-columns:auto 1fr;} .row-score,.status-chip{grid-column:2; justify-self:end;} }
+  @media (max-width:640px){ .row{grid-template-columns:auto minmax(0,1fr);} .row-score,.status-chip{grid-column:2; justify-self:end;} }
 
   .knob{width:36px;height:36px;border-radius:50%;position:relative;flex:0 0 auto; background:conic-gradient(from -90deg, var(--knob-color,var(--ok)) calc(var(--pct,80)*1%), var(--rule) 0); display:flex;align-items:center;justify-content:center;}
   .knob::before{content:"";position:absolute; inset:4px;border-radius:50%;background:var(--card);}
@@ -289,12 +292,12 @@ FINISH: fourth candidate in the proposal set; own-world reskin of the same funct
   .status-picker button.on[data-val="marginal"]{background:var(--warn); color:#fff;}
   .status-picker button.on[data-val="fail"]{background:var(--danger); color:#fff;}
 
-  .builder-field-row{display:grid; grid-template-columns:1fr 200px auto; gap:10px; align-items:center; margin-bottom:10px;}
-  .builder-field-row input, .builder-field-row select{background:var(--bg1); border:1.5px solid var(--rule-2); border-radius:12px; color:var(--ink); padding:11px 14px; font-family:inherit; font-size:13px;}
+  .builder-field-row{display:grid; grid-template-columns:minmax(0,1fr) 200px auto; gap:10px; align-items:center; margin-bottom:10px;}
+  .builder-field-row input, .builder-field-row select{width:100%; min-width:0; background:var(--bg1); border:1.5px solid var(--rule-2); border-radius:12px; color:var(--ink); padding:11px 14px; font-family:inherit; font-size:13px;}
   .bf-remove{width:40px; height:40px; border-radius:12px; border:1.5px solid var(--rule-2); background:var(--bg1); color:var(--ink-3); cursor:pointer; display:flex; align-items:center; justify-content:center; flex:0 0 auto;}
   .bf-remove:hover{color:var(--danger); border-color:var(--danger);}
   .bf-remove svg{width:13px;height:13px;}
-  @media (max-width:640px){ .builder-field-row{grid-template-columns:1fr 1fr;} .bf-remove{grid-column:2; justify-self:end;} }
+  @media (max-width:640px){ .builder-field-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);} .bf-remove{grid-column:2; justify-self:end;} }
 
   .photo-grid{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;}
   .photo-thumb{width:78px; height:78px; border-radius:14px; overflow:hidden; position:relative;}
@@ -314,9 +317,9 @@ FINISH: fourth candidate in the proposal set; own-world reskin of the same funct
   .empty-note{color:var(--ink-3); font-size:13px; font-style:italic;}
 
   /* ---------- customers split view ---------- */
-  .cust-shell{display:grid; grid-template-columns:320px 1fr 320px; gap:16px; align-items:start;}
-  @media (max-width:1180px){ .cust-shell{grid-template-columns:300px 1fr;} .cust-right{grid-column:1/-1;} }
-  @media (max-width:760px){ .cust-shell{grid-template-columns:1fr;} }
+  .cust-shell{display:grid; grid-template-columns:320px minmax(0,1fr) 320px; gap:16px; align-items:start;}
+  @media (max-width:1180px){ .cust-shell{grid-template-columns:300px minmax(0,1fr);} .cust-right{grid-column:1/-1;} }
+  @media (max-width:760px){ .cust-shell{grid-template-columns:minmax(0,1fr);} }
   .search-box{display:flex; align-items:center; gap:8px; background:var(--bg1); border-radius:14px; padding:11px 14px; margin-bottom:14px;}
   .search-box svg{width:15px;height:15px; color:var(--ink-3); flex:0 0 auto;}
   .search-box input{flex:1; border:none; background:none; font-family:inherit; font-size:13px; color:var(--ink); outline:none;}
@@ -559,7 +562,7 @@ FINISH: fourth candidate in the proposal set; own-world reskin of the same funct
 
     <!-- ============ CUSTOMERS (split view) ============ -->
     <section class="view" data-view3="customers" hidden>
-      <div class="hero" style="margin-bottom:18px;">
+      <div class="hero">
         <div><h1 style="font-size:28px;">Customers</h1><p class="sub">Search, review history, and add new sites.</p></div>
         <button class="btn sm" id="btnNewCustomerTop3">+ New Customer</button>
       </div>

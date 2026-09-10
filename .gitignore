@@ -1,0 +1,9 @@
+# Vercel deployment folders
+vercel-design-*/
+.vercel/
+node_modules/
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
